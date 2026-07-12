@@ -1,0 +1,33 @@
+.header {
+  padding: 20px 40px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #facc15;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+/* .nav li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav li:hover {
+  color: #facc15;
+} */
+
+.wrapperHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
