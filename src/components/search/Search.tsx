@@ -1,30 +1,21 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import noImage from '../../img/noImage.png'
-import { NavLink, useParams, useSearchParams } from 'react-router-dom'
+import { NavLink, useSearchParams } from 'react-router-dom'
 import './Search.css'
-export const Search = () => {
+import Film from '../../types/Films'
+export const Search: React.FC = () => {
     const [query, setQuery] = useState('')
     const [hasSearched, setHasSearched] = useState(false)
-    const [searchFilm, setSearchFilm] = useState([])
+    const [searchFilm, setSearchFilm] = useState<Film[]>([])
     const [searchParams, setSearchParams] = useSearchParams()
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
 
-    const handleSearch = async (e) => {
+    const handleSearch = async (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (!query) return
         setSearchParams({ query })
-        // try {
-        //     const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=${myAPI}&query=${query}`
-        //     const films = await axios.get(searchAPI)
-        //     setSearchFilm(films.data.results)
-        //     setHasSearched(true)
-        //     setSearchParams({query})
-        //     setQuery("")
-        // } catch (err) {
-        //     console.log(err);
-        // }
     }
 
     useEffect(() => {
