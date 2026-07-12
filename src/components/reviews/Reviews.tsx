@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import './Reviews.css'
 import axios from "axios"
+import Review from "../../types/Review"
 
-export const Reviews = () => {
+export const Reviews: React.FC = () => {
     const { id } = useParams()
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState<Review[]>([])
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
     const reviewsAPI = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${myAPI}`

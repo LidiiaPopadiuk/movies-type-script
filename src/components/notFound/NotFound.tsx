@@ -1,7 +1,7 @@
 import './NotFound.css'
 import { Link } from 'react-router-dom'
 
-export const NotFound = () => {
+export const NotFound: React.FC = () => {
   return (
     <div className="notfound">
       <div className="notfound-content">

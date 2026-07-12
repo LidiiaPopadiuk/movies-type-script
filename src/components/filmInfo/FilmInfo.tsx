@@ -4,9 +4,10 @@ import { useParams, useNavigate } from "react-router-dom"
 import { NavLink, Outlet } from "react-router-dom"
 import noImage from '../../img/noImage.png'
 import './FilmInfo.css'
-export const FilmInfo = () => {
+import { FInfo } from "../../types/FInfo"
+export const FilmInfo: React.FC = () => {
     const { id } = useParams()
-    const [detail, setDetail] = useState([])
+    const [detail, setDetail] = useState<FInfo>()
     const navigate = useNavigate()
     console.log(navigate)
 
@@ -47,7 +48,7 @@ export const FilmInfo = () => {
                             </div>
                         </div>
                         <div className="btnWrapper">
-                            <NavLink className="btn3" onClick={() => navigate(-1)}>
+                            <NavLink className="btn3" onClick={() => navigate(-1)} to={''}>
                                 ← Back
                             </NavLink>
                             <NavLink onClick={() => {

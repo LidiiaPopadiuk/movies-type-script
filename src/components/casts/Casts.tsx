@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom"
 import noImage from '../../img/noImage.png'
 import './Casts.css'
 import axios from "axios"
+import Cast from "../../types/Casts"
 
-export const Casts = () => {
+export const Casts: React.FC = () => {
     const { id } = useParams()
-    const [casts, setCasts] = useState([])
+    const [casts, setCasts] = useState<Cast[]>([])
 
     const myAPI = '91c7f76b1f3882ead0c92576730eccde'
     const castsAPI = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${myAPI}`
@@ -17,7 +18,10 @@ export const Casts = () => {
                 const castsResponse = await axios.get(castsAPI)
                 setCasts(castsResponse.data.cast)
             } catch (err) {
-                console.log(err);
+                if(err instanceof Error) { // можна так
+                    console.log(err);
+                }
+                
             }
         }
         getCasts()
